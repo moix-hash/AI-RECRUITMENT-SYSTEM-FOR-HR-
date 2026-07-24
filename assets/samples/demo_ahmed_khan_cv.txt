@@ -1,0 +1,6 @@
+AHMED KHAN | Senior Python Engineer | Austin, TX
+8 years of experience building backend and cloud platforms.
+Skills: Python, FastAPI, Django, PostgreSQL, AWS, Docker, Kubernetes, Terraform, Redis.
+Experience: Led API modernization for a B2B platform serving 2M monthly users. Improved deployment reliability and reduced API latency by 35%.
+Education: BS Computer Science, University of Texas at Austin.
+Projects: Kubernetes deployment framework; real-time analytics service.

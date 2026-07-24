@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  quality-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install -r requirements-dev.txt
+      - run: black --check .
+      - run: isort --check-only --profile black .
+      - run: flake8 app ai auth components database middleware repositories services utils validators tests
+      - run: bandit -q -r app ai auth components database middleware repositories services utils validators
+      - run: pytest --cov=. --cov-report=xml
+      - uses: actions/upload-artifact@v4
+        with: {name: coverage, path: coverage.xml}
+
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with: {context: ., push: false, tags: ai-recruitment-assistant:ci}
+      - uses: aquasecurity/trivy-action@master
+        with: {image-ref: ai-recruitment-assistant:ci, format: table, exit-code: '1', severity: 'CRITICAL,HIGH'}

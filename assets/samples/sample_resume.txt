@@ -1,0 +1,18 @@
+Alex Morgan
+Senior Software Engineer
+
+Experience
+- Built Python services for analytics and recommendation products
+- Worked with SQLAlchemy, FastAPI, and PostgreSQL
+- Developed LLM-powered assistants using LangChain and Gemini
+- Led cross-functional engineering initiatives and mentored junior developers
+
+Education
+- B.S. in Computer Science
+
+Skills
+Python, SQL, PostgreSQL, LangChain, Gemini, Docker, AWS
+
+Achievements
+- Reduced onboarding time by 40%
+- Delivered a production-grade AI platform

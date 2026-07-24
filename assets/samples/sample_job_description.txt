@@ -1,0 +1,3 @@
+Senior Software Engineer
+
+We are seeking a Senior Software Engineer with strong backend and AI product experience. The ideal candidate has expertise in Python, SQL, distributed systems, cloud deployment, mentoring, and building modern SaaS features. Experience with LangChain, LLM workflows, and data pipelines is strongly preferred.

@@ -1,0 +1,6 @@
+DANIEL BROOKS | Backend Engineer | Dallas, TX
+7 years of experience designing reliable distributed services.
+Skills: Python, FastAPI, Node.js, PostgreSQL, Redis, Kafka, AWS, CI/CD.
+Experience: Built event-driven billing services and improved production incident resolution by 40%.
+Education: BS Software Engineering, Texas A&M University.
+Projects: Kafka event platform; scalable payments API.

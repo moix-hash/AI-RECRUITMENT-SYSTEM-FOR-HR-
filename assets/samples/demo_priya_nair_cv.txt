@@ -1,0 +1,6 @@
+PRIYA NAIR | Data Scientist | New York, NY
+5 years of experience delivering analytics and forecasting products.
+Skills: Python, SQL, Pandas, scikit-learn, Tableau, Statistics, BigQuery.
+Experience: Developed customer churn models that improved retention campaign targeting by 22%.
+Education: MS Analytics, Columbia University.
+Projects: Hiring forecast model; customer segmentation dashboard.

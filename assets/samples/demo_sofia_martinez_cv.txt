@@ -1,0 +1,6 @@
+SOFIA MARTINEZ | Machine Learning Engineer | Remote, US
+6 years of experience in applied machine learning and MLOps.
+Skills: Python, PyTorch, TensorFlow, MLflow, Docker, AWS SageMaker, RAG, LangChain.
+Experience: Delivered recommendation and document intelligence systems used by 500 enterprise customers.
+Education: MS Data Science, Georgia Tech.
+Projects: Retrieval augmented generation platform; model monitoring pipeline.

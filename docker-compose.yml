@@ -1,0 +1,27 @@
+services:
+  recruitment-app:
+    build: .
+    image: ai-recruitment-assistant:local
+    env_file: .env
+    ports:
+      - "${APP_PORT:-8501}:8501"
+    volumes:
+      - recruitment-data:/app/data
+      - recruitment-logs:/app/logs
+    restart: unless-stopped
+    profiles: ["production"]
+
+  development:
+    build: .
+    command: streamlit run app/main.py --server.address=0.0.0.0 --server.port=8501
+    env_file: .env
+    ports:
+      - "${APP_PORT:-8501}:8501"
+    volumes:
+      - .:/app
+      - recruitment-data:/app/data
+    profiles: ["development"]
+
+volumes:
+  recruitment-data:
+  recruitment-logs:

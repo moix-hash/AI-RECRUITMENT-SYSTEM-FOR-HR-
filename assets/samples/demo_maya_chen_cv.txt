@@ -1,0 +1,6 @@
+MAYA CHEN | Frontend Engineer | San Francisco, CA
+6 years of experience crafting accessible, high-performance web applications.
+Skills: React, TypeScript, Next.js, GraphQL, Testing Library, Figma, Design Systems.
+Experience: Led delivery of a shared design system adopted by seven product teams.
+Education: BS Human Computer Interaction, UC San Diego.
+Projects: Accessible component library; real-time collaboration interface.

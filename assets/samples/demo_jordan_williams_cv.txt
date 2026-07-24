@@ -1,0 +1,6 @@
+JORDAN WILLIAMS | DevOps Engineer | Seattle, WA
+8 years of experience in cloud infrastructure, SRE, and platform engineering.
+Skills: AWS, Kubernetes, Terraform, Docker, GitHub Actions, Prometheus, Grafana, Linux.
+Experience: Designed a developer platform that shortened delivery lead time from days to hours.
+Education: BS Information Systems, University of Washington.
+Projects: Kubernetes observability stack; infrastructure-as-code modules.

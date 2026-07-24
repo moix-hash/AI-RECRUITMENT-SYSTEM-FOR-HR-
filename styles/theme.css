@@ -1,0 +1,17 @@
+:root { color-scheme: dark; }
+.stApp { background: radial-gradient(circle at 86% -12%, rgba(99,102,241,.18), transparent 28%), #090d18; }
+.block-container { max-width: 1480px; padding-top: 2rem; padding-bottom: 3rem; }
+[data-testid="stSidebar"] { background: #0b1020; border-right: 1px solid #1e293b; min-width: 240px; }
+[data-testid="stSidebar"] [data-testid="stVerticalBlock"] { gap: .35rem; }
+[data-testid="stHeader"] { background: transparent; }
+#MainMenu, footer { visibility: hidden; }
+[data-testid="stBaseButton-secondary"], [data-testid="stBaseButton-tertiary"] { border: 1px solid transparent !important; background: transparent !important; color: #cbd5e1 !important; box-shadow: none !important; justify-content: flex-start !important; }
+[data-testid="stBaseButton-secondary"]:hover, [data-testid="stBaseButton-tertiary"]:hover { background: #172033 !important; color: #f8fafc !important; border-color: #293548 !important; }
+[data-testid="stBaseButton-primary"] { background: linear-gradient(135deg, #4f46e5, #7c3aed) !important; border: 0 !important; box-shadow: 0 8px 18px rgba(79,70,229,.22) !important; }
+[data-testid="stBaseButton-primary"]:hover { transform: translateY(-1px); filter: brightness(1.08); }
+[data-testid="stChatMessage"] { background: rgba(17,24,39,.68); border: 1px solid #243046; border-radius: 16px; padding: .35rem .7rem; }
+[data-testid="stChatInput"] { border: 1px solid #334155; border-radius: 14px; background: #101827; }
+[data-testid="stMetric"] { background: linear-gradient(145deg, rgba(20,29,47,.95), rgba(13,20,34,.9)); border-radius: 16px; }
+[data-testid="stVerticalBlockBorderWrapper"] { border-color: #243046; border-radius: 16px; background: rgba(15,23,42,.45); }
+.muted { color: #94a3b8; font-size: .82rem; letter-spacing: .02em; }
+.card { background: rgba(15,23,42,.72); border: 1px solid #243046; border-radius: 16px; padding: 1rem; }
