@@ -47,6 +47,16 @@ def _show_analysis(analysis: dict) -> None:
     with recommendation:
         st.metric("Recommendation", analysis["recommendation"], border=True)
     st.write(analysis["candidate_summary"])
+    st.caption(f"Analysis source: {analysis.get('analysis_mode', 'Structured analysis')}")
+    summary_left, summary_right = st.columns(2)
+    with summary_left:
+        st.markdown("**Experience and education**")
+        st.write(analysis.get("experience_summary", "Not available"))
+        st.write(analysis.get("education_summary", "Not available"))
+    with summary_right:
+        st.markdown("**Projects and HR justification**")
+        st.write(analysis.get("project_summary", "Not available"))
+        st.write(analysis.get("justification", "Not available"))
     matching, missing = st.columns(2)
     with matching:
         st.markdown("**Strengths found**")
@@ -54,6 +64,9 @@ def _show_analysis(analysis: dict) -> None:
     with missing:
         st.markdown("**Focus areas**")
         st.write(", ".join(analysis["missing_skills"]) or "Add role-specific achievements and measurable outcomes")
+    if analysis.get("extra_skills"):
+        st.markdown("**Additional skills**")
+        st.write(", ".join(analysis["extra_skills"]))
     st.markdown("**Suggested interview questions**")
     for question in analysis["interview_questions"]:
         st.write(f"• {question}")

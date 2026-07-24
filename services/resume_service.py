@@ -5,7 +5,7 @@ from typing import List
 
 from database.models import SessionLocal, Resume
 from repositories.resume_repository import ResumeRepository
-from utils.file_utils import extract_text_from_pdf, save_upload, validate_file_size
+from utils.file_utils import clean_extracted_text, extract_text_from_pdf, save_upload, validate_file_size
 
 
 class ResumeService:
@@ -16,7 +16,7 @@ class ResumeService:
             raise ValueError("File exceeds maximum allowed size")
 
         storage_path, safe_name = save_upload(uploaded_file, uploaded_file.name)
-        text = extract_text_from_pdf(storage_path)
+        text = clean_extracted_text(extract_text_from_pdf(storage_path))
         email_match = re.search(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", text)
         candidate_email = email_match.group(0).lower() if email_match else ""
 

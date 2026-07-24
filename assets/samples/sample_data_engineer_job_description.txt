@@ -1,0 +1,24 @@
+Senior Data Engineer — Demo job description
+
+Location: Remote (Pakistan time zones preferred)
+Employment: Full-time
+
+About the role
+Build reliable analytics data products for a growing HR technology platform. You will own
+batch and near-real-time pipelines, model clean datasets for reporting, and work closely
+with product, analytics, and engineering teams.
+
+Responsibilities
+- Design and maintain Python and SQL data pipelines.
+- Build data models in a cloud warehouse and improve data quality checks.
+- Work with Airflow or an equivalent orchestration tool.
+- Partner with analysts to define useful metrics and documentation.
+- Improve observability, reliability, and cost of the data platform.
+
+Required skills
+Python, SQL, ETL/ELT, data modeling, Git, cloud data services, Docker, and clear written
+communication. Experience with Airflow, dbt, Spark, BigQuery, Snowflake, or AWS is valued.
+
+What to include in your application
+Share measurable pipeline, quality, performance, or analytics outcomes and describe the
+datasets and stakeholders you supported.

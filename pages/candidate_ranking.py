@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import csv
+import io
 from pathlib import Path
 import re
 
@@ -70,7 +72,65 @@ def page() -> None:
     if not ranked:
         st.info("Upload text-based CVs to generate candidate match scores.")
         return
+
+    csv_buffer = io.StringIO()
+    writer = csv.DictWriter(
+        csv_buffer,
+        fieldnames=["rank", "candidate", "email", "role", "score", "recommendation", "matching_skills", "missing_skills"],
+    )
+    writer.writeheader()
+    for position, (score, resume, role, analysis) in enumerate(ranked, start=1):
+        writer.writerow(
+            {
+                "rank": position,
+                "candidate": _candidate_name(resume.filename),
+                "email": _candidate_email(resume),
+                "role": role.title,
+                "score": score,
+                "recommendation": analysis["recommendation"],
+                "matching_skills": ", ".join(analysis["matching_skills"]),
+                "missing_skills": ", ".join(analysis["missing_skills"]),
+            }
+        )
+
     st.caption(f"{len(ranked)} candidates ranked — scores are based on skills and job requirements, never placeholder zeroes.")
+    st.download_button(
+        "Export ranking CSV",
+        data=csv_buffer.getvalue().encode("utf-8"),
+        file_name="candidate_ranking.csv",
+        mime="text/csv",
+        icon=":material/download:",
+    )
+
+    comparison_options = {
+        f"{_candidate_name(resume.filename)} — {_candidate_email(resume)}": (score, resume, role, analysis)
+        for score, resume, role, analysis in ranked
+    }
+    selected_candidates = st.multiselect(
+        "Compare candidates",
+        list(comparison_options),
+        max_selections=2,
+        placeholder="Choose two candidates for a side-by-side review",
+    )
+    if len(selected_candidates) == 2:
+        first, second = (comparison_options[name] for name in selected_candidates)
+        st.subheader("Candidate comparison")
+        left, right = st.columns(2)
+        for column, candidate in ((left, first), (right, second)):
+            score, resume, role, analysis = candidate
+            with column:
+                with st.container(border=True):
+                    st.subheader(_candidate_name(resume.filename))
+                    st.metric("Best match", f"{score}%")
+                    st.caption(f"Best role: {role.title}")
+                    st.write(analysis["candidate_summary"])
+                    st.markdown("**Matching skills**")
+                    st.write(", ".join(analysis["matching_skills"]) or "No direct skills identified")
+                    st.markdown("**Development areas**")
+                    st.write(", ".join(analysis["missing_skills"]) or "No critical gaps identified")
+        leading = selected_candidates[0] if first[0] >= second[0] else selected_candidates[1]
+        st.success(f"Current strongest match: {leading}. Review the evidence above before making a hiring decision.")
+
     for position, (score, resume, role, analysis) in enumerate(ranked, start=1):
         with st.container(border=True):
             heading, score_column = st.columns((4, 1), vertical_alignment="center")

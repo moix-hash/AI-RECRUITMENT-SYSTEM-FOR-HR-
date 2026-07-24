@@ -9,6 +9,7 @@ TalentOS is a Streamlit recruitment workspace for HR teams and candidates. It co
 
 - Create, edit, share, and manage open job postings
 - Upload CVs and automatically add them to the hiring pipeline
+- Upload a job-description PDF or write a role manually; extracted text remains editable before publishing
 - Review candidate names, stages, match scores, and job alignment
 - Move candidates through Applied, AI Screening, Recruiter Review, Phone Screening, Interview, Offer, and other stages
 - Schedule interviews with date, time, meeting link, and an audit record
@@ -42,10 +43,13 @@ Results show live workspace candidate names, roles, stages, and scores. Recruite
 - CV matching uses recognised role skills, rather than common words, to avoid misleading scores.
 - Each candidate is uniquely grouped by the email extracted from their CV. If no email is available, the CV is treated as an unverified record.
 - Candidate Ranking compares every CV against its best-fitting open job, so different candidates can be matched to different vacancies.
+- The ranking screen supports a focused side-by-side comparison and a CSV export for recruiter review.
 
 ## Demo content
 
 Without a configured RSS feed, TalentOS seeds approximately 25 realistic technology jobs marked as demo data. It also provides bundled demo CVs and pipeline applications for a populated first-run experience.
+
+Sample job descriptions are available in `assets/samples/`, including `sample_data_engineer_job_description.txt`. The course recording outline and submission checklist are in `docs/`.
 
 Set `JOB_RSS_FEED_URL` to an explicitly approved public RSS feed to synchronize jobs instead of relying only on demo data.
 
@@ -107,6 +111,7 @@ repositories/  Query and persistence helpers
 components/    Shared sidebar, dashboard, and theme components
 utils/         PDF extraction and deterministic matching fallback
 assets/samples Bundled demo CVs
+docs/          Course demo script and submission checklist
 tests/         Automated tests
 ```
 

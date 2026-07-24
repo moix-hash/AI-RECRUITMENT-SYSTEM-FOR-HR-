@@ -8,7 +8,8 @@ SKILL_KEYWORDS = (
     "python", "fastapi", "django", "sql", "postgresql", "aws", "azure", "gcp", "docker", "kubernetes",
     "terraform", "linux", "react", "typescript", "javascript", "node", "java", "spring", "kafka",
     "pytorch", "machine learning", "mlops", "llm", "rag", "langchain", "api", "apis", "graphql",
-    "data analysis", "tableau", "power bi", "product management", "customer support", "operations",
+    "data analysis", "data engineering", "etl", "elt", "airflow", "dbt", "spark", "bigquery", "snowflake",
+    "tableau", "power bi", "product management", "customer support", "operations",
     "business development", "fraud investigation", "recovery", "communication", "leadership",
 )
 
@@ -40,13 +41,28 @@ def build_fallback_analysis(resume_text: str, job_description: str) -> Dict[str,
     gap_text = ", ".join(missing_skills[:3]) or "no major keyword gaps"
     primary_match = matching_skills[0] if matching_skills else "the role requirements"
     first_gap = missing_skills[0] if missing_skills else "relevant delivery outcomes"
+    years = re.search(r"\b(\d{1,2})\+?\s+years?\b", resume_text, flags=re.I)
+    education = re.search(r"\b(BS|BA|BSc|MS|MSc|MBA|PhD|Bachelor|Master)[^\n.]{0,100}", resume_text, flags=re.I)
+    project_lines = [line.strip() for line in resume_text.splitlines() if re.search(r"project|built|developed|implemented", line, flags=re.I)]
+    experience_summary = f"{years.group(1)} years of experience identified" if years else "Experience duration was not clearly stated"
+    education_summary = education.group(0).strip() if education else "Education details were not clearly identified"
+    project_summary = project_lines[0][:180] if project_lines else "No clearly labelled project outcome was identified"
+    justification = (
+        f"{recommendation} based on {', '.join(matching_skills[:3]) or 'limited direct skill overlap'}"
+        f"; validate {', '.join(missing_skills[:3]) or 'recent delivery outcomes'} during screening."
+    )
 
     return {
         "candidate_summary": f"This CV shows evidence of {strength_text}. The main area(s) to validate for this role: {gap_text}.",
+        "experience_summary": experience_summary,
+        "education_summary": education_summary,
+        "project_summary": project_summary,
         "matching_skills": matching_skills,
         "missing_skills": missing_skills,
         "extra_skills": extra_skills,
         "recommendation": recommendation,
+        "justification": justification,
+        "analysis_mode": "Local skill-based fallback",
         "final_score": score,
         "interview_questions": [
             f"Tell us about a project where you used {primary_match} and what outcome you achieved.",
