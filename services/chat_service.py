@@ -23,7 +23,8 @@ class RecruitmentChatService:
         if "interview question" in lower:
             skills = [skill for skill in SKILL_KEYWORDS if re.search(rf"(?<![a-z]){re.escape(skill)}(?![a-z])", lower)]
             return actions.request(actor, "generate_interview_questions", {"skills": skills})
-        if actor.role.lower() in recruiter_roles and any(term in lower for term in candidate_terms) and "job" not in lower:
+        is_candidate_search = lower.startswith(("show", "find", "search", "list", "who"))
+        if actor.role.lower() in recruiter_roles and is_candidate_search and any(term in lower for term in candidate_terms) and "job" not in lower:
             return {"ok": True, "result": {"kind": "candidate_search", "summary": "I found 24 candidate matches. These three have the strongest Python and cloud fit.", "query": normalized}}
         if lower.startswith("search jobs") or lower.startswith("find jobs") or "open role" in lower or "job opening" in lower:
             query = re.sub(r"^(search|find) jobs?( for)?\s*", "", normalized, flags=re.I)
