@@ -98,6 +98,11 @@ def _render_response(response: dict) -> None:
         st.markdown(f"Your workspace has **{result['applications']} active applications**.")
         stages = {stage: count for stage, count in result["pipeline"].items() if count}
         st.bar_chart(stages, horizontal=True)
+    elif result.get("kind") == "knowledge":
+        st.write(result.get("message", "I could not find a reliable answer."))
+        st.caption(f"Answer source: {result.get('source', 'workspace retrieval')}")
+        if result.get("sources"):
+            st.caption("Retrieved: " + " · ".join(result["sources"]))
     else:
         st.write(result.get("message", "I couldn’t find reliable information for that request."))
 
