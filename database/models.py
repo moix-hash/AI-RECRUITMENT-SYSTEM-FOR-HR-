@@ -167,7 +167,9 @@ class AuditLog(Base):
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
 
-engine = create_engine(DATABASE_URL, future=True)
+# PostgreSQL is used in Streamlit Community Cloud through DATABASE_URL. Pool
+# health checks prevent stale connections after a cloud app has been idle.
+engine = create_engine(DATABASE_URL, future=True, pool_pre_ping=True, pool_recycle=1800)
 # Authentication and service methods return lightweight ORM records after the
 # transaction scope closes; keep their already-loaded scalar values available.
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, expire_on_commit=False, bind=engine)

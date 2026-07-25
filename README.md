@@ -88,17 +88,21 @@ Never commit API keys, candidate CVs, uploaded files, database files, or logs. I
 1. Create a dedicated GitHub repository containing only this project.
 2. Do **not** commit `.env`, `data/`, SQLite databases, uploaded CVs, or `.streamlit/secrets.toml`.
 3. In Streamlit Community Cloud, choose **Create app**, select the repository and branch, and set the entry point to `app/main.py`.
-4. Add production settings through the Community Cloud **Secrets** panel, for example:
+4. Create a managed PostgreSQL database (Supabase, Neon, Railway, or Render) and add production
+   settings through the Community Cloud **Secrets** panel, for example:
 
 ```toml
 MODEL_PROVIDER = "gemini"
 GEMINI_MODEL = "gemini-2.0-flash"
 GEMINI_API_KEY = "replace-with-your-rotated-key"
+DATABASE_URL = "postgresql+psycopg://USER:PASSWORD@HOST:5432/DATABASE?sslmode=require"
 ```
 
 5. Click **Deploy**.
 
-The current default SQLite database is appropriate for a local/demo deployment but is not durable on Streamlit Community Cloud. Use a managed PostgreSQL database and object storage for production candidate records and uploads.
+The current default SQLite database is appropriate for local development only. A managed PostgreSQL
+database is required for durable Cloud records. See [Streamlit Cloud deployment](docs/streamlit-cloud-deployment.md)
+for the exact app settings and secrets template.
 
 ## Project layout
 
