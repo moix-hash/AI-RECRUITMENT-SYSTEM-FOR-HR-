@@ -6,8 +6,22 @@ TalentOS is a Streamlit recruitment workspace for HR teams and candidates. It co
 
 TalentOS reduces manual CV screening by extracting resume text, comparing it with a job description, producing a transparent candidate-fit score, and supporting recruiters through ranking, pipeline, and interview workflows. Gemini through LangChain is used when configured; a local skill-based and retrieval fallback keeps core functionality available without an API key.
 
+## Live demo
+
+Try the deployed application here:
+
+- Streamlit Cloud: https://ai-recruitment-system-for-hr.streamlit.app/
 
 ## What it does
+
+### Key features
+
+- AI-assisted resume screening with transparent fit scoring
+- Job description upload and parsing for role matching
+- Candidate ranking, comparison, and export workflows
+- ATS-style pipeline tracking and interview management
+- Optional Gemini integration with a deterministic local fallback
+- Demo datasets and seeded sample content for quick evaluation
 
 ### HR and recruiter workflows
 
@@ -81,9 +95,27 @@ Open `http://127.0.0.1:8501`.
 
 The complete dependency list is in `requirements.txt`. The primary libraries are Streamlit, SQLAlchemy, Pydantic, Pandas, PyMuPDF, pdfplumber, LangChain, langchain-google-genai, FAISS, ReportLab, and python-dotenv.
 
+## Technology stack
+
+- Frontend: Streamlit
+- Backend logic: Python
+- Data layer: SQLAlchemy with SQLite locally and PostgreSQL in cloud deployment
+- AI integration: Gemini + LangChain, with deterministic fallback logic
+- Document parsing: PyMuPDF and pdfplumber
+- Reporting: ReportLab
+
 ## Expected output
 
 After launching the app, users can create or upload a job description, upload one or more resumes, review extracted text, receive a candidate-fit report with a score and skill gaps, compare/rank candidates, export CSV results, move applications through the hiring pipeline, and schedule interviews.
+
+## How to use the app
+
+1. Start the app locally with the command above or open the deployed Streamlit link.
+2. Sign in or create an HR account.
+3. Upload a job description or create one manually.
+4. Upload one or more resumes to analyze candidate fit.
+5. Review the generated score, skill gaps, recommendation, and interview questions.
+6. Move candidates through the ATS pipeline and schedule interviews as needed.
 
 ## Configuration
 
@@ -135,6 +167,19 @@ assets/samples Bundled demo CVs
 docs/          Course demo script and submission checklist
 tests/         Automated tests
 ```
+
+## Architecture overview
+
+TalentOS follows a simple modular design:
+
+- Streamlit pages handle the user interface and navigation.
+- Service and repository layers manage business logic and persistence.
+- SQLAlchemy models provide the data layer for users, jobs, resumes, and audit trails.
+- AI and parsing components support candidate analysis and skill matching.
+
+## Contribution and development notes
+
+Contributions are welcome. For local development, create a virtual environment, install dependencies, and run the test suite before submitting changes.
 
 ## Verification
 
