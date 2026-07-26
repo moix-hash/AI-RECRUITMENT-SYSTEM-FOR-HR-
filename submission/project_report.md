@@ -4,8 +4,8 @@
 TalentOS - AI Recruitment Workspace
 
 ## Group Members
-- Syed Moiz Shahab - Seat No: B23110006164 - Project developer / group member
-- Hamza Rizwan - Seat No: B2311006164 - Group member
+- Syed Moiz Shahab - Seat No: B23110006164 - Project developer / Group member
+- Hamza Rizwan - Seat No: B2311006038 - Group member
 - Project type: Team project
 
 ## Introduction
