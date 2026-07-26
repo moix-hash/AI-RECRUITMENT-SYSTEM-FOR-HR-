@@ -151,7 +151,7 @@ The ready-to-submit files are in `submission/`:
 - `submission_manifest.txt` — delivery checklist.
 - `video_recording_checklist.md` — 5–10 minute recording outline.
 
-Before submitting, add your registration number to the report, record the requested demonstration, and include its file or accessible link according to your instructor's submission method.
+Before submitting, record the requested demonstration and include its file or accessible link according to your instructor's submission method.
 
 ## Security notes
 

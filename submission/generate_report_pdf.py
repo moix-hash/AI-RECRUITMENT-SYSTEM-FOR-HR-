@@ -5,6 +5,8 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import cm
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import ListFlowable, ListItem, Paragraph, SimpleDocTemplate, Spacer
 
 
@@ -12,9 +14,18 @@ ROOT = Path(__file__).resolve().parent
 source = ROOT / "project_report.md"
 output = ROOT / "project_report.pdf"
 styles = getSampleStyleSheet()
-title_style = ParagraphStyle("ReportTitle", parent=styles["Title"], alignment=TA_CENTER, spaceAfter=18)
-heading_style = ParagraphStyle("ReportHeading", parent=styles["Heading2"], textColor=colors.HexColor("#1F2937"), spaceBefore=12, spaceAfter=6)
-body_style = ParagraphStyle("ReportBody", parent=styles["BodyText"], leading=15, spaceAfter=7)
+font_dir = Path("C:/Windows/Fonts")
+regular_font = "Helvetica"
+bold_font = "Helvetica-Bold"
+if (font_dir / "arial.ttf").exists() and (font_dir / "arialbd.ttf").exists():
+    pdfmetrics.registerFont(TTFont("TalentOS", str(font_dir / "arial.ttf")))
+    pdfmetrics.registerFont(TTFont("TalentOS-Bold", str(font_dir / "arialbd.ttf")))
+    regular_font = "TalentOS"
+    bold_font = "TalentOS-Bold"
+
+title_style = ParagraphStyle("ReportTitle", parent=styles["Title"], fontName=bold_font, alignment=TA_CENTER, spaceAfter=18)
+heading_style = ParagraphStyle("ReportHeading", parent=styles["Heading2"], fontName=bold_font, textColor=colors.HexColor("#1F2937"), spaceBefore=12, spaceAfter=6)
+body_style = ParagraphStyle("ReportBody", parent=styles["BodyText"], fontName=regular_font, leading=15, spaceAfter=7)
 
 story = []
 bullets: list[str] = []
