@@ -1,0 +1,7 @@
+candidate_id,candidate_name,email,target_role,years_experience,skills,source,usage
+C001,Ahmed Khan,ahmed.khan@example.com,Senior Python Engineer,8,"Python;AWS;Docker;Kubernetes",synthetic demo CV,CV parsing and candidate ranking
+C002,Sofia Martinez,sofia.martinez@example.com,Machine Learning Engineer,6,"Python;PyTorch;MLOps;RAG",synthetic demo CV,CV parsing and candidate ranking
+C003,Daniel Brooks,daniel.brooks@example.com,Backend Engineer,7,"FastAPI;PostgreSQL;Redis;AWS",synthetic demo CV,CV parsing and candidate ranking
+C004,Maya Chen,maya.chen@example.com,Data Engineer,5,"Python;SQL;Airflow;dbt",synthetic demo CV,CV parsing and candidate ranking
+C005,Priya Nair,priya.nair@example.com,Product Manager,6,"Product Management;Analytics;SQL;Communication",synthetic demo CV,CV parsing and candidate ranking
+C006,Jordan Williams,jordan.williams@example.com,Cloud Engineer,7,"AWS;Terraform;Docker;Linux",synthetic demo CV,CV parsing and candidate ranking

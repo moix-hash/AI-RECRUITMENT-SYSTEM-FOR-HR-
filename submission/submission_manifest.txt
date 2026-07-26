@@ -1,0 +1,15 @@
+Submission contents:
+- README.md
+- project_report.md
+- project_report.pdf
+- ai_usage_declaration.md
+- trained_model_not_applicable.md
+- video_recording_checklist.md
+- source code: project root files and folders
+- dataset: assets/samples/ and dataset/
+- requirements.txt
+
+Before upload:
+- Add the student's registration number to project_report.md and regenerate project_report.pdf.
+- Record the 5–10 minute live project demonstration.
+- Upload the complete project folder and recording/link according to the course portal instructions.

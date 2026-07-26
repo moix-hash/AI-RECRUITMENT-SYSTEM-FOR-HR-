@@ -2,6 +2,10 @@
 
 TalentOS is a Streamlit recruitment workspace for HR teams and candidates. It combines job posting, CV intake, candidate matching, ATS pipeline management, interview scheduling, and a role-aware AI assistant in one application.
 
+## Project objective
+
+TalentOS reduces manual CV screening by extracting resume text, comparing it with a job description, producing a transparent candidate-fit score, and supporting recruiters through ranking, pipeline, and interview workflows. Gemini through LangChain is used when configured; a local skill-based and retrieval fallback keeps core functionality available without an API key.
+
 
 ## What it does
 
@@ -53,6 +57,11 @@ Sample job descriptions are available in `assets/samples/`, including `sample_da
 
 Set `JOB_RSS_FEED_URL` to an explicitly approved public RSS feed to synchronize jobs instead of relying only on demo data.
 
+## Dataset and model
+
+- **Dataset:** Synthetic, clearly labelled demo CVs and job descriptions are in `assets/samples/`. A tabular submission dataset and data dictionary are in `dataset/`.
+- **Model / algorithm:** No trained model artifact is used. The application combines PDF text extraction, recognised-skill matching, deterministic scoring, and optional Gemini + LangChain structured analysis. See `submission/trained_model_not_applicable.md`.
+
 ## Run locally
 
 Requirements: Python 3.10+ and PowerShell on Windows.
@@ -67,6 +76,14 @@ python -m streamlit run app/main.py --server.port 8501
 ```
 
 Open `http://127.0.0.1:8501`.
+
+## Required libraries
+
+The complete dependency list is in `requirements.txt`. The primary libraries are Streamlit, SQLAlchemy, Pydantic, Pandas, PyMuPDF, pdfplumber, LangChain, langchain-google-genai, FAISS, ReportLab, and python-dotenv.
+
+## Expected output
+
+After launching the app, users can create or upload a job description, upload one or more resumes, review extracted text, receive a candidate-fit report with a score and skill gaps, compare/rank candidates, export CSV results, move applications through the hiring pipeline, and schedule interviews.
 
 ## Configuration
 
@@ -124,6 +141,17 @@ tests/         Automated tests
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -q
 ```
+
+## Submission package
+
+The ready-to-submit files are in `submission/`:
+
+- `project_report.pdf` — project report with group-member details.
+- `ai_usage_declaration.md` — transparent AI usage declaration.
+- `submission_manifest.txt` — delivery checklist.
+- `video_recording_checklist.md` — 5–10 minute recording outline.
+
+Before submitting, add your registration number to the report, record the requested demonstration, and include its file or accessible link according to your instructor's submission method.
 
 ## Security notes
 
