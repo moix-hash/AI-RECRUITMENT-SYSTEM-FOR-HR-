@@ -12,6 +12,10 @@ Try the deployed application here:
 
 - Streamlit Cloud: https://ai-recruitment-system-for-hr.streamlit.app/
 
+Watch the project walkthrough here:
+
+- Demo video: https://drive.google.com/file/d/1hcSXm_p5sd0J_ZhMSPW7xQYlB0rf4Cen/view?usp=drive_link
+
 ## What it does
 
 ### Key features
@@ -67,6 +71,17 @@ Results show live workspace candidate names, roles, stages, and scores. Recruite
 
 Without a configured RSS feed, TalentOS seeds approximately 25 realistic technology jobs marked as demo data. It also provides bundled demo CVs and pipeline applications for a populated first-run experience.
 
+## Screenshots
+
+Project screenshots are included in `assets/screenshots/` and are recommended for submission. They should include:
+
+- The HR dashboard and main navigation
+- Resume upload and extracted text preview
+- Resume analysis with score, skills, recommendation, and interview questions
+- Candidate ranking/comparison table with CSV export
+
+Adding these images to the repository or documentation will strengthen your submission.
+
 Sample job descriptions are available in `assets/samples/`, including `sample_data_engineer_job_description.txt`. The course recording outline and submission checklist are in `docs/`.
 
 Set `JOB_RSS_FEED_URL` to an explicitly approved public RSS feed to synchronize jobs instead of relying only on demo data.
@@ -81,7 +96,7 @@ Set `JOB_RSS_FEED_URL` to an explicitly approved public RSS feed to synchronize 
 Requirements: Python 3.10+ and PowerShell on Windows.
 
 ```powershell
-cd "C:\Users\FBC\AI RECURUITM ENT FOR HR"
+cd "C:\Users\FBC\TALENTS-OS  AI RECRUITMENT FOR HR"
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
